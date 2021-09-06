@@ -4,11 +4,12 @@
 * @date: 05/Septiembre/2021
 **/ 
 
-const Text = (props) => {
+export const Text = (props) => {
+    const { children } = props
     return (
-        <div className="">
-
-        </div>
+        <p className="text">
+            {children}
+        </p>
     );
 }
 

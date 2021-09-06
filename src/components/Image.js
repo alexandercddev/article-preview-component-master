@@ -4,11 +4,10 @@
 * @date: 05/Septiembre/2021
 **/ 
 
-const Image = (props) => {
+export const Image = (props) => {
+    const { image, name } = props
     return (
-        <div className="">
-
-        </div>
+        <img className="image" src={image} alt={name} />
     );
 }
 

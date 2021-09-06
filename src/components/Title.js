@@ -4,11 +4,12 @@
 * @date: 05/Septiembre/2021
 **/ 
 
-const Title = (props) => {
+export const Title = (props) => {
+    const{ children } = props
     return (
-        <div className="">
-
-        </div>
+        <h3 className="title">
+            {children}
+        </h3>
     );
 }
 

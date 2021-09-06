@@ -1,14 +1,22 @@
-
 /** 
 * @author: Alexander Chi
 * @description:
 * @date: 05/Septiembre/2021
 **/ 
+import {Image} from './Image';
 
-const Card = (props) => {
+export const Card = (props) => {
+    const { image, children } = props;
     return (
-        <div className="">
-
+        <div className="card">
+            {image && (
+                <Image 
+                    name="Card Image"
+                    image={image}/> 
+            )} 
+            <div className="content">
+                {children}
+            </div>
         </div>
     );
 }

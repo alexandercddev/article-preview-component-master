@@ -3,11 +3,22 @@
 * @description:
 * @date: 05/Septiembre/2021
 **/ 
+import {Image} from './Image';
 
-const Item = (props) => {
+export const Item = (props) => {
+    const { image, children } = props;
     return (
-        <div className="">
-
+        <div className="item">
+            <div className="item__image">
+                {image && (
+                    <Image  
+                        name="Card Image"
+                        image={image}/> 
+                )} 
+            </div>
+            <div className="item__content">
+                {children}
+            </div>
         </div>
     );
 }
