@@ -3,6 +3,7 @@
  * @description:
  * @date: 05/Septiembre/2021
 **/ 
+import React, { useState } from 'react';  
 import './assets/scss/App.scss';
 import {Card} from './components/Card';
 import {Title} from './components/Title';
@@ -12,6 +13,25 @@ import image from './assets/images/drawers.jpg';
 import avatar from './assets/images/avatar-michelle.jpg';
 
 const App = (props) => {
+    const [active, setActive] = useState('')
+    const handleShare = (event) => {
+        setActive( active === 'active' ? '' : 'active')
+    }
+    const handleUrl = (event) => {
+        const {id} = event.target;
+        switch(id) {
+            case 'facebook':
+                window.open("https://www.facebook.com/AlexanderArturoChiDominguez");
+            break;
+            case 'twitter':
+                window.open("https://twitter.com/alexandercddev");
+            break;
+            case 'pinterest':
+                alert("No existe red social")
+            break;
+        }
+    }
+
     return (
         <div className="container">
             <Card image={image}>
@@ -30,8 +50,15 @@ const App = (props) => {
                         <div className="name">Michelle Appleton</div>
                         <span className="date">28 Jun 2020</span>
                     </div>
-                    <button className="btn btn-fab share" />
+                    <button className="btn btn-fab share" onClick={handleShare}/>
+                    <div className={`popover ${active}`}>
+                        <span className="text">Share</span>
+                        <span id="facebook" className="facebook" onClick={handleUrl}></span>
+                        <span id="twitter" className="twitter" onClick={handleUrl}></span>
+                        <span id="pinterest" className="pinterest" onClick={handleUrl}></span>
+                    </div>
                 </Item>
+                
             </Card>
         </div>
     );

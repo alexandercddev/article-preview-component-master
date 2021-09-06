@@ -86,10 +86,65 @@ button {
   border-radius: 50%;
   border: none;
   background-color: $grayishBlue;
+  cursor: pointer;
 }
 
 .share::after {
   width: 55px;
   height: 55px;
   content: url('../svgs/icon-share.svg');
+}
+
+.popover.active {
+  display: flex;
+  transition:opacity 2s
+}
+
+.popover{  
+  display: none;
+  position: absolute; 
+  align-items: center;
+  background-color: $veryDarkGrayishBlue;
+  border-radius: 10px;
+  padding: 5px;
+  right: 8.5%;
+  margin-bottom: 120px;
+}
+
+.popover::after {
+  position: absolute;
+  content: ' '; 
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 20px 0 20px;
+  border-color: $veryDarkGrayishBlue transparent transparent transparent;
+  left: 40%; 
+  bottom: -30%; 
+}
+
+.popover> span {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  text-transform: uppercase; 
+  margin-right: 10px;
+}
+
+.popover> span.text {
+  width: auto; 
+  margin: 10px 10px 0 10px; 
+  color: $lightGrayishBlue;
+}
+
+.facebook { 
+  content: url('../svgs/icon-facebook.svg');
+}
+
+.twitter { 
+  content: url('../svgs/icon-twitter.svg');
+}
+
+.pinterest { 
+  content: url('../svgs/icon-pinterest.svg');
 }
