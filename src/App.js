@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './assets/scss/App.scss';
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
       <header className="App-header">

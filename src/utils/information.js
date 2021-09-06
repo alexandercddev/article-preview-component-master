@@ -3,8 +3,3 @@
 * @description:
 * @date: 05/Septiembre/2021
 **/ 
-
-* {
-  margin: 0;
-  padding: 0;
-} 
