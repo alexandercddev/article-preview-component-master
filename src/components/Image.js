@@ -5,9 +5,9 @@
 **/ 
 
 export const Image = (props) => {
-    const { image, name } = props
+    const { image, name, active } = props
     return (
-        <img className="image" src={image} alt={name} />
+        <img className={`image ${active}`} src={image} alt={name} />
     );
 }
 

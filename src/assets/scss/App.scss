@@ -11,6 +11,8 @@ $grayishBlue: hsla(212, 23%, 69%, 0.4);
 $lightGrayishBlue: hsl(210, 46%, 95%);
 
 * {
+  margin: 0;
+  padding: 0;
   font-family: 'Manrope';
   font-size: 13px;
 }
@@ -34,6 +36,9 @@ $lightGrayishBlue: hsl(210, 46%, 95%);
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 30px;
 }
 
@@ -89,18 +94,26 @@ button {
   cursor: pointer;
 }
 
-.share::after {
-  width: 55px;
-  height: 55px;
-  content: url('../svgs/icon-share.svg');
+button.active {
+  opacity: 0.85;
+  background-color: $veryDarkGrayishBlue;
 }
 
-.popover.active {
+button:hover {
+  box-shadow: 0 0 15px 0 $grayishBlue;
+}
+
+.share.active> path { 
+  stroke: $lightGrayishBlue;
+  fill: $lightGrayishBlue;
+}
+
+.popover.desktop__active {
   display: flex;
   transition:opacity 2s
-}
+} 
 
-.popover{  
+.popover {  
   display: none;
   position: absolute; 
   align-items: center;
@@ -108,7 +121,8 @@ button {
   border-radius: 10px;
   padding: 5px;
   right: 8.5%;
-  margin-bottom: 120px;
+  margin-bottom: 120px; 
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
 }
 
 .popover::after {
@@ -134,7 +148,8 @@ button {
 .popover> span.text {
   width: auto; 
   margin: 10px 10px 0 10px; 
-  color: $lightGrayishBlue;
+  color: $lightGrayishBlue; 
+  letter-spacing: 5px;
 }
 
 .facebook { 
@@ -147,4 +162,70 @@ button {
 
 .pinterest { 
   content: url('../svgs/icon-pinterest.svg');
+} 
+
+/** mobile **/ 
+@media (min-width: 320px) and (max-width: 992px) { 
+  
+  .container {
+    width: auto; 
+    padding: auto;
+  }
+
+  .card {
+    flex-direction: column; 
+  }
+  
+  .image {
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .popover::after {
+    display: none;
+  }
+
+  .popover.desktop__active {
+    display: none;
+  }
+
+  .popover.active {
+    display: flex;
+  }
+
+  .popover {
+    width: 100%;
+    height: 100px;
+    margin:0;
+    padding: 0;
+    right: 0;
+    position: static;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  button.active {
+    background-color: $desaturatedDarkBlue;
+    opacity: 1;
+    z-index: 100;  
+    position: absolute;
+    margin-top: 155px; 
+  }
+
+  .texts.active {
+    display: none;
+  }
+
+  .image.active {
+    display: none;
+  }
+
+  .item__content.active { 
+    width: 100%;
+    margin-top: 0;
+    margin-left: -0;
+    margin-bottom: -0;
+    justify-content: flex-end;
+  } 
 }

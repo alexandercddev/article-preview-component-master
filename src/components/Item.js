@@ -6,17 +6,18 @@
 import {Image} from './Image';
 
 export const Item = (props) => {
-    const { image, children } = props;
+    const { image, children, active } = props;
     return (
         <div className="item">
             <div className="item__image">
                 {image && (
                     <Image  
                         name="Card Image"
-                        image={image}/> 
+                        image={image}
+                        active={active}/> 
                 )} 
             </div>
-            <div className="item__content">
+            <div className={`item__content ${active}`}>
                 {children}
             </div>
         </div>
